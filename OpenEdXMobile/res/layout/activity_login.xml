@@ -45,8 +45,8 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/login_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/phonetic_app_name"
                         app:srcCompat="@drawable/login_screen_logo" />
@@ -60,7 +60,7 @@
                     android:paddingStart="@dimen/login_margin_horizontal"
                     android:paddingEnd="@dimen/login_margin_horizontal">
 
-                    <org.edx.mobile.view.custom.EdxTextInputLayout
+                    <com.grassroot.academy.view.custom.EdxTextInputLayout
                         android:id="@+id/usernameWrapper"
                         style="@style/Widget.Design.TextInputLayout"
                         android:layout_width="match_parent"
@@ -77,9 +77,9 @@
                             android:inputType="textEmailAddress"
                             android:maxLength="100" />
 
-                    </org.edx.mobile.view.custom.EdxTextInputLayout>
+                    </com.grassroot.academy.view.custom.EdxTextInputLayout>
 
-                    <org.edx.mobile.view.custom.EdxTextInputLayout
+                    <com.grassroot.academy.view.custom.EdxTextInputLayout
                         android:id="@+id/passwordWrapper"
                         style="@style/Widget.Design.TextInputLayout"
                         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                             android:inputType="textPassword"
                             android:maxLength="100" />
 
-                    </org.edx.mobile.view.custom.EdxTextInputLayout>
+                    </com.grassroot.academy.view.custom.EdxTextInputLayout>
 
                     <TextView
                         android:id="@+id/forgot_password_tv"
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <org.edx.mobile.view.custom.DividerWithTextView
+                        <com.grassroot.academy.view.custom.DividerWithTextView
                             android:id="@+id/text_alternate_sign_in"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

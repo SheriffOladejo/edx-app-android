@@ -7,15 +7,15 @@
 
         <variable
             name="dateBlock"
-            type="org.edx.mobile.model.course.CourseDateBlock" />
+            type="com.grassroot.academy.model.course.CourseDateBlock" />
 
         <variable
             name="dateItemListener"
-            type="org.edx.mobile.interfaces.OnDateBlockListener" />
+            type="com.grassroot.academy.interfaces.OnDateBlockListener" />
 
         <variable
             name="dateBlockList"
-            type="java.util.ArrayList&lt;org.edx.mobile.model.course.CourseDateBlock&gt;" />
+            type="java.util.ArrayList&lt;com.grassroot.academy.model.course.CourseDateBlock&gt;" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

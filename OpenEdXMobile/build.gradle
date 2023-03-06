@@ -354,17 +354,17 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         // test configuration
-        testApplicationId 'org.edx.mobile.test'
+        testApplicationId 'com.grassroot.academy.test'
 
         for (task in project.gradle.startParameter.taskNames) {
             if (task.contains("ScreenshotTest")) {
                 Map<String, String> map = new HashMap<String, String>();
-                map.put("package", "org.edx.mobile.test.screenshot");
+                map.put("package", "com.grassroot.academy.test.screenshot");
                 setTestInstrumentationRunnerArguments map
             }
         }
 
-        testInstrumentationRunner "org.edx.mobile.test.EdXTestRunner"
+        testInstrumentationRunner "com.grassroot.academy.test.EdXTestRunner"
 
         testHandleProfiling true
         testFunctionalTest true

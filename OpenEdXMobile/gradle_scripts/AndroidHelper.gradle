@@ -176,7 +176,7 @@ class AndroidHelper {
 
     static def getListOfMandatoryFiles() {
         def list = new ArrayList()
-        def file = new MandatoryFile("/src/main/java/org/edx/mobile/googlecast/CastOptionsProvider.java",
+        def file = new MandatoryFile("/src/main/java/com/grassroot/academy/googlecast/CastOptionsProvider.java",
                 "App must implement the OptionsProvider interface to supply options needed to initialize the CastContext singleton.",
                 "https://developers.google.com/cast/docs/android_sender/integrate#initialize_the_cast_context")
         list.add(file)

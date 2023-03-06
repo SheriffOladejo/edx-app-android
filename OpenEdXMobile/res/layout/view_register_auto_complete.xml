@@ -8,14 +8,14 @@
     android:paddingTop="@dimen/registration_field_vertical_padding"
     android:paddingBottom="@dimen/registration_field_vertical_padding">
 
-    <org.edx.mobile.view.custom.EdxTextInputLayout
+    <com.grassroot.academy.view.custom.EdxTextInputLayout
         android:id="@+id/input_wrapper_auto_complete"
         style="@style/Widget.Design.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/neutralXXDark">
 
-        <org.edx.mobile.module.registration.view.RegistrationOptionAutoCompleteTextView
+        <com.grassroot.academy.module.registration.view.RegistrationOptionAutoCompleteTextView
             android:id="@+id/input_auto_complete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:inputType="textAutoComplete"
             android:maxLines="1"
             android:textColorHint="@color/neutralXXDark" />
-    </org.edx.mobile.view.custom.EdxTextInputLayout>
+    </com.grassroot.academy.view.custom.EdxTextInputLayout>
 
     <TextView
         android:id="@+id/input_auto_complete_instructions"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.edx.mobile"
+    package="com.grassroot.academy"
     android:installLocation="auto">
 
     <!-- Required by app for server communication and video download -->
@@ -32,8 +32,8 @@
 
     <!-- Setup for Code Coverage -->
     <instrumentation
-        android:name="org.edx.mobile.instrumentation.EdxInstrumentation"
-        android:targetPackage="org.edx.mobile" />
+        android:name="com.grassroot.academy.instrumentation.EdxInstrumentation"
+        android:targetPackage="com.grassroot.academy" />
 
     <!-- Required for package visibility on Android 11 or higher devices -->
     <queries>
@@ -60,7 +60,7 @@
         tools:targetApi="n">
 
         <activity
-            android:name="org.edx.mobile.view.SplashActivity"
+            android:name="com.grassroot.academy.view.SplashActivity"
             android:label="@string/app_shortcut_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoDisplayTheme"
@@ -79,26 +79,26 @@
         </activity>
 
         <activity
-            android:name="org.edx.mobile.view.LaunchActivity"
+            android:name="com.grassroot.academy.view.LaunchActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launch" />
 
         <activity
-            android:name="org.edx.mobile.view.DiscoveryLaunchActivity"
+            android:name="com.grassroot.academy.view.DiscoveryLaunchActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.edx.mobile.view.LoginActivity"
+            android:name="com.grassroot.academy.view.LoginActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.RegisterActivity"
+            android:name="com.grassroot.academy.view.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
@@ -119,22 +119,22 @@
         </activity>
 
         <activity
-            android:name="org.edx.mobile.view.MainDashboardActivity"
+            android:name="com.grassroot.academy.view.MainDashboardActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.AccountActivity"
+            android:name="com.grassroot.academy.view.AccountActivity"
             android:label="@string/profile_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.PaymentsInfoActivity"
+            android:name="com.grassroot.academy.view.PaymentsInfoActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CourseOutlineActivity"
+            android:name="com.grassroot.academy.view.CourseOutlineActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
@@ -157,53 +157,53 @@
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.DiscussionAddPostActivity"
+            android:name="com.grassroot.academy.view.DiscussionAddPostActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/discussion_post_create_new_post"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.DiscussionAddResponseActivity"
+            android:name="com.grassroot.academy.view.DiscussionAddResponseActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/discussion_add_response_title"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.DiscussionAddCommentActivity"
+            android:name="com.grassroot.academy.view.DiscussionAddCommentActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/discussion_add_comment_title"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CourseUnitNavigationActivity"
+            android:name="com.grassroot.academy.view.CourseUnitNavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="user"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.DownloadListActivity"
+            android:name="com.grassroot.academy.view.DownloadListActivity"
             android:label="@string/title_download"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CourseInfoActivity"
+            android:name="com.grassroot.academy.view.CourseInfoActivity"
             android:label="@string/label_discovery"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.ProgramInfoActivity"
+            android:name="com.grassroot.academy.view.ProgramInfoActivity"
             android:label="@string/label_discovery"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CourseDetailActivity"
+            android:name="com.grassroot.academy.view.CourseDetailActivity"
             android:label="@string/label_find_courses"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CourseHandoutActivity"
+            android:name="com.grassroot.academy.view.CourseHandoutActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
@@ -218,7 +218,7 @@
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
-            android:name="org.edx.mobile.view.CertificateActivity"
+            android:name="com.grassroot.academy.view.CertificateActivity"
             android:label="@string/tab_label_certificate"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"/>
@@ -265,7 +265,7 @@
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="org.edx.mobile.innerlinks" />
+                <data android:scheme="com.grassroot.academy.innerlinks" />
             </intent-filter>
         </activity>
 
@@ -281,7 +281,7 @@
 
         <!--Google cast expanded controls activity-->
         <activity
-            android:name="org.edx.mobile.googlecast.ExpandedControlsActivity"
+            android:name="com.grassroot.academy.googlecast.ExpandedControlsActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:theme="@style/Theme.CastVideosTheme"
@@ -292,10 +292,10 @@
         </activity>
 
         <activity
-            android:name="org.edx.mobile.view.AuthenticatedWebViewActivity"
+            android:name="com.grassroot.academy.view.AuthenticatedWebViewActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
-        <receiver android:name="org.edx.mobile.module.download.DownloadCompleteReceiver"
+        <receiver android:name="com.grassroot.academy.module.download.DownloadCompleteReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
@@ -317,11 +317,11 @@
             </intent-filter>
         </receiver>
 
-        <!-- adb shell am broadcast -a org.edx.mobile.END_EMMA -->
-        <receiver android:name="org.edx.mobile.instrumentation.EndEmmaBroadcast"
+        <!-- adb shell am broadcast -a com.grassroot.academy.END_EMMA -->
+        <receiver android:name="com.grassroot.academy.instrumentation.EndEmmaBroadcast"
             android:exported="true">
             <intent-filter>
-                <action android:name="org.edx.mobile.END_EMMA" />
+                <action android:name="com.grassroot.academy.END_EMMA" />
             </intent-filter>
         </receiver>
 
@@ -367,13 +367,13 @@
                     android:resource="@xml/image_provider"/>
         </provider>
 
-        <service android:name="org.edx.mobile.services.DownloadSpeedService" />
+        <service android:name="com.grassroot.academy.services.DownloadSpeedService" />
 
         <!-- Notifications through Firebase Cloud Messaging (FCM) -->
         <meta-data android:name="firebase_messaging_auto_init_enabled"
             android:value="${fcmEnabled}" />
         <service
-            android:name="org.edx.mobile.notifications.services.NotificationService"
+            android:name="com.grassroot.academy.notifications.services.NotificationService"
             android:enabled="${fcmEnabled}"
             android:exported="true">
             <intent-filter>
@@ -396,7 +396,7 @@
         <!--Google cast options provider -->
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="org.edx.mobile.googlecast.CastOptionsProvider" />
+            android:value="com.grassroot.academy.googlecast.CastOptionsProvider" />
 
     </application>
 

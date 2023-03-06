@@ -41,7 +41,7 @@
                     <include layout="@layout/panel_message_with_check" />
                 </LinearLayout>
 
-                <org.edx.mobile.view.custom.DividerWithTextView
+                <com.grassroot.academy.view.custom.DividerWithTextView
                     android:id="@+id/signup_with_row"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
 
                 <include layout="@layout/panel_social_auth" />
 
-                <org.edx.mobile.view.custom.DividerWithTextView
+                <com.grassroot.academy.view.custom.DividerWithTextView
                     android:id="@+id/or_signup_with_email_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                     android:layout_marginTop="@dimen/widget_margin_half"
                     android:orientation="vertical" />
 
-                <org.edx.mobile.view.custom.DividerWithTextView
+                <com.grassroot.academy.view.custom.DividerWithTextView
                     android:id="@+id/optional_field_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -1,0 +1,78 @@
+package com.grassroot.academy.model.api
+
+import com.google.gson.annotations.SerializedName
+import com.grassroot.academy.interfaces.SectionItemInterface
+import com.grassroot.academy.model.course.EnrollmentMode
+
+data class EnrolledCoursesResponse(
+
+    @SerializedName("mode")
+    var mode: String,
+
+    @SerializedName("audit_access_expires")
+    val auditAccessExpires: String,
+
+    @SerializedName("is_active")
+    val isActive: Boolean = false,
+
+    @SerializedName("course")
+    val course: CourseEntry,
+
+    @SerializedName("certificate")
+    private val certificate: CertificateModel?,
+
+    @SerializedName("course_modes")
+    private val courseModes: List<CourseMode>?,
+) : SectionItemInterface {
+
+    var isDiscussionBlackedOut: Boolean = false
+
+    val courseId: String
+        get() = course.id
+
+    val certificateURL: String?
+        get() = certificate?.certificateURL
+
+    val isCertificateEarned: Boolean
+        get() = certificateURL.isNullOrEmpty().not()
+
+    val courseSku: String?
+        get() = courseModes?.firstOrNull { item ->
+            EnrollmentMode.VERIFIED.name.equals(item.slug, ignoreCase = true)
+        }?.androidSku.takeUnless { it.isNullOrEmpty() }
+
+    val isAuditMode: Boolean
+        get() = EnrollmentMode.AUDIT.toString().equals(mode, ignoreCase = true)
+
+    val isUpgradeable: Boolean
+        get() = isAuditMode &&
+                course.isStarted &&
+                course.isUpgradeDeadlinePassed.not() &&
+                courseModes?.find {
+                    EnrollmentMode.VERIFIED.toString().equals(it.slug, ignoreCase = true)
+                } != null
+
+    override fun isChapter(): Boolean {
+        return false
+    }
+
+    override fun isSection(): Boolean {
+        return false
+    }
+
+    override fun toString(): String {
+        return course.name
+    }
+
+    override fun isCourse(): Boolean {
+        return true
+    }
+
+    override fun isVideo(): Boolean {
+        return false
+    }
+
+    override fun isDownload(): Boolean {
+        return false
+    }
+}

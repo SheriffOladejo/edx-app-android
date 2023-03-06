@@ -12,7 +12,7 @@
         android:paddingEnd="@dimen/common_course_display_margin_side"
         android:paddingBottom="@dimen/common_course_display_margin_top">
 
-        <org.edx.mobile.view.custom.EdxWebView
+        <com.grassroot.academy.view.custom.EdxWebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

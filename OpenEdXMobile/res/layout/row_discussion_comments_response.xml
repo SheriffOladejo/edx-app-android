@@ -19,7 +19,7 @@
 
         <include layout="@layout/row_discussion_user_profile" />
 
-        <org.edx.mobile.view.custom.EdxDiscussionBody
+        <com.grassroot.academy.view.custom.EdxDiscussionBody
             android:id="@+id/discussion_render_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
