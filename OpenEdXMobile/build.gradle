@@ -19,8 +19,8 @@ buildscript {
     }
 }
 
-apply plugin: 'edxapp'
 apply plugin: 'com.android.application'
+apply plugin: 'edxapp'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt' //To enable data binding with kotlin
 apply plugin: 'com.dicedmelon.gradle.jacoco-android'
