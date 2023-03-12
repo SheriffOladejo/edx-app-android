@@ -3,3 +3,72 @@ ENVIRONMENT_DISPLAY_NAME: 'Grassroot Academy'
 PLATFORM_NAME: 'Grassroot Academy'
 PLATFORM_DESTINATION_NAME: 'https://demo.grassroot.academy'
 FEEDBACK_EMAIL_ADDRESS: 'contact@demo.grassroot.academy'
+
+ECOMMERCE_URL: 'https://ecommerce.demo.grassroot.academy'
+DISCOVERY:
+  TYPE: webview
+  WEBVIEW:
+    BASE_URL: https://demo.grassroot.academy/courses
+    COURSE_DETAIL_TEMPLATE: https://demo.grassroot.academy/courses/{path_id}
+    PROGRAM_DETAIL_TEMPLATE: https://demo.grassroot.academy/courses/{path_id}
+PROGRAM:
+  ENABLED: true
+  PROGRAM_URL: https://demo.grassroot.academy/dashboard/programs/?mobile_only=true
+  PROGRAM_DETAIL_URL_TEMPLATE: https://demo.grassroot.academy/dashboard/{path_id}?mobile_only=true
+
+AGREEMENT_URLS:
+  PRIVACY_POLICY_URL: https://www.edx.org/webview/edx-privacy-policy
+  COOKIE_POLICY_URL: https://www.edx.org/webview/edx-privacy-policy/cookies
+  DATA_SELL_CONSENT_URL: https://www.edx.org/webview/edx-privacy-policy/do-not-sell-my-personal-data
+  TOS_URL: https://www.edx.org/webview/edx-terms-service
+  EULA_URL: https://www.edx.org/webview/eula
+  SUPPORTED_LANGUAGES:
+    - en
+
+DELETE_ACCOUNT_URL: https://apps.demo.grassroot.academy/account/#delete-account
+ANNOUNCEMENTS_ENABLED: true
+BADGES_ENABLED: true
+CERTIFICATES_ENABLED: true
+COURSE_DATES_ENABLED: true
+COURSE_SHARING_ENABLED: true
+COURSE_VIDEOS_ENABLED: true
+DISCUSSIONS_ENABLED: true
+DISCUSSIONS_ENABLE_PROFILE_PICTURE_PARAM: true
+PUSH_NOTIFICATIONS: true
+NEW_LOGISTRATION_ENABLED: true
+REGISTRATION_ENABLED: true
+TAB_LAYOUTS_ENABLED: true
+USER_PROFILES_ENABLED: true
+VIDEO_TRANSCRIPT_ENABLED: true
+WHATS_NEW_ENABLED: false
+IAP_ENABLED: false
+SOCIAL_SHARING:
+  ENABLED: false
+
+  WHITE_LIST_OF_DOMAINS:
+    - courses.edx.org
+    - edx.org
+    - cdn.segment.io
+    - ssl.google-analytics.com
+    - api.segment.io
+    - e.crashyltics.com
+    - settings.crashlytics.com
+      - www.google-analytics.com
+    - android.clients.google.com
+    - play.googleapis.com
+    - cdn.optimizely.com
+END_TO_END_TEST:
+  EMAIL_TEMPLATE: edx-app-test-{unique_id}@simulator.amazonses.com
+SPEED_TEST_ENABLED: false
+BRAZE:
+  ENABLED: true
+  PUSH_NOTIFICATIONS_ENABLED: true
+TEST_ACCOUNT:
+  NAME: staff@example.com
+  PASSWORD: edx
+OAUTH_CLIENT_ID: 'IyCsG75VZnS8UAlcphpWGR6fZ4H1bPjK6qLD5vkx'
+APP_UPDATE_URIS:
+  - market://details?id={application_id}
+  - https://play.google.com/store/apps/details?id={application_id}
+APP_REVIEWS_ENABLED: true
+DOWNLOAD_TO_SD_CARD_ENABLED: true

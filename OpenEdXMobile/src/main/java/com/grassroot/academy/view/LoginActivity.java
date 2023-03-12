@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -355,6 +356,8 @@ public class LoginActivity
     }
 
     public void onUserLoginFailure(Exception ex, String accessToken, String backend) {
+        Toast.makeText(LoginActivity.this, "Exception: " + ex.toString(), Toast.LENGTH_LONG).show();
+        System.out.println("Exception: " + ex.toString());
         tryToSetUIInteraction(true);
 
         if (ex != null && ex instanceof LoginException) {
@@ -366,6 +369,7 @@ public class LoginActivity
         } else if (ex != null && ex instanceof HttpStatusException) {
             switch (((HttpStatusException) ex).getStatusCode()) {
                 case HttpStatus.UPGRADE_REQUIRED:
+
                     LoginActivity.this.showAlertDialog(null,
                             getString(R.string.app_version_unsupported_login_msg),
                             getString(R.string.label_update),
@@ -374,6 +378,7 @@ public class LoginActivity
                             getString(android.R.string.cancel), null);
                     break;
                 case HttpStatus.FORBIDDEN:
+                    Toast.makeText(LoginActivity.this, "here 1", Toast.LENGTH_LONG).show();
                     LoginActivity.this.showAlertDialog(getString(R.string.login_error),
                             getString(R.string.auth_provider_disabled_user_error),
                             getString(R.string.label_customer_support),
@@ -382,6 +387,7 @@ public class LoginActivity
                                             getString(R.string.email_subject_account_disabled)), getString(android.R.string.cancel), null);
                     break;
                 default:
+                    Toast.makeText(LoginActivity.this, "here 1", Toast.LENGTH_LONG).show();
                     showAlertDialog(getString(R.string.login_error), ErrorUtils.getErrorMessage(ex, LoginActivity.this));
                     logger.error(ex);
             }

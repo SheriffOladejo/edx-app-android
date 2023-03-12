@@ -1,6 +1,8 @@
 package com.grassroot.academy.view
 
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +13,6 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import com.grassroot.academy.BuildConfig
 import com.grassroot.academy.R
 import com.grassroot.academy.base.BaseFragment
@@ -20,11 +20,7 @@ import com.grassroot.academy.core.IEdxEnvironment
 import com.grassroot.academy.databinding.FragmentAccountBinding
 import com.grassroot.academy.deeplink.Screen
 import com.grassroot.academy.deeplink.ScreenDef
-import com.grassroot.academy.event.AccountDataLoadedEvent
-import com.grassroot.academy.event.IAPFlowEvent
-import com.grassroot.academy.event.MainDashboardRefreshEvent
-import com.grassroot.academy.event.MediaStatusChangeEvent
-import com.grassroot.academy.event.ProfilePhotoUpdatedEvent
+import com.grassroot.academy.event.*
 import com.grassroot.academy.exception.ErrorMessage
 import com.grassroot.academy.extenstion.isVisible
 import com.grassroot.academy.extenstion.setVisibility
@@ -38,29 +34,19 @@ import com.grassroot.academy.module.prefs.LoginPrefs
 import com.grassroot.academy.module.prefs.PrefManager
 import com.grassroot.academy.user.UserAPI.AccountDataUpdatedCallback
 import com.grassroot.academy.user.UserService
-import com.grassroot.academy.util.AgreementUrlType
-import com.grassroot.academy.util.AppConstants
-import com.grassroot.academy.util.BrowserUtil
-import com.grassroot.academy.util.Config
-import com.grassroot.academy.util.ConfigUtil
-import com.grassroot.academy.util.FileUtil
-import com.grassroot.academy.util.InAppPurchasesException
-import com.grassroot.academy.util.NonNullObserver
-import com.grassroot.academy.util.ResourceUtil
-import com.grassroot.academy.util.UserProfileUtils
+import com.grassroot.academy.util.*
 import com.grassroot.academy.util.observer.EventObserver
-import com.grassroot.academy.view.dialog.AlertDialogFragment
-import com.grassroot.academy.view.dialog.FullscreenLoaderDialogFragment
-import com.grassroot.academy.view.dialog.IDialogCallback
-import com.grassroot.academy.view.dialog.NetworkCheckDialogFragment
-import com.grassroot.academy.view.dialog.VideoDownloadQualityDialogFragment
+import com.grassroot.academy.view.dialog.*
 import com.grassroot.academy.viewModel.CourseViewModel
 import com.grassroot.academy.viewModel.InAppPurchasesViewModel
 import com.grassroot.academy.wrapper.InAppPurchasesDialog
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import retrofit2.Call
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class AccountFragment : BaseFragment() {
@@ -383,64 +369,34 @@ class AccountFragment : BaseFragment() {
     }
 
     private fun initPrivacyFields() {
-        ConfigUtil.getAgreementUrl(
-            this.requireContext(),
-            config.agreementUrlsConfig,
-            AgreementUrlType.PRIVACY_POLICY
-        )?.let { privacyPolicyUrl ->
-            binding.tvPrivacyPolicy.setVisibility(true)
-            binding.tvPrivacyPolicy.setOnClickListener {
-                environment.router.showAuthenticatedWebViewActivity(
-                    this.requireContext(),
-                    privacyPolicyUrl,
-                    getString(R.string.label_privacy_policy),
-                    false
-                )
-                trackEvent(
-                    Analytics.Events.PRIVACY_POLICY_CLICKED,
-                    Analytics.Values.PRIVACY_POLICY_CLICKED
-                )
-            }
+        binding.tvPrivacyPolicy.setVisibility(true)
+        binding.tvPrivacyPolicy.setOnClickListener {
+            trackEvent(
+                Analytics.Events.PRIVACY_POLICY_CLICKED,
+                Analytics.Values.PRIVACY_POLICY_CLICKED
+            )
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edx.org/webview/edx-privacy-policy"))
+            startActivity(browserIntent)
         }
 
-        ConfigUtil.getAgreementUrl(
-            this.requireContext(),
-            config.agreementUrlsConfig,
-            AgreementUrlType.COOKIE_POLICY
-        )?.let { cookiePolicyUrl ->
-            binding.tvCookiePolicy.setVisibility(true)
-            binding.tvCookiePolicy.setOnClickListener {
-                environment.router.showAuthenticatedWebViewActivity(
-                    this.requireContext(),
-                    cookiePolicyUrl,
-                    getString(R.string.label_cookie_policy),
-                    false
-                )
-                trackEvent(
-                    Analytics.Events.COOKIE_POLICY_CLICKED,
-                    Analytics.Values.COOKIE_POLICY_CLICKED
-                )
-            }
+        binding.tvCookiePolicy.setVisibility(true)
+        binding.tvCookiePolicy.setOnClickListener {
+            trackEvent(
+                Analytics.Events.COOKIE_POLICY_CLICKED,
+                Analytics.Values.COOKIE_POLICY_CLICKED
+            )
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edx.org/webview/edx-privacy-policy/cookies"))
+            startActivity(browserIntent)
         }
 
-        ConfigUtil.getAgreementUrl(
-            this.requireContext(),
-            config.agreementUrlsConfig,
-            AgreementUrlType.DATA_CONSENT
-        )?.let { dataConsentUrl ->
-            binding.tvDataConsentPolicy.setVisibility(true)
-            binding.tvDataConsentPolicy.setOnClickListener {
-                environment.router.showAuthenticatedWebViewActivity(
-                    this.requireContext(),
-                    dataConsentUrl,
-                    getString(R.string.label_do_not_sell_my_personal_data),
-                    false
-                )
-                trackEvent(
-                    Analytics.Events.DO_NOT_SELL_DATA_CLICKED,
-                    Analytics.Values.DO_NOT_SELL_DATA_CLICKED
-                )
-            }
+        binding.tvDataConsentPolicy.setVisibility(true)
+        binding.tvDataConsentPolicy.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edx.org/webview/edx-privacy-policy/do-not-sell-my-personal-data"))
+            startActivity(browserIntent)
+            trackEvent(
+                Analytics.Events.DO_NOT_SELL_DATA_CLICKED,
+                Analytics.Values.DO_NOT_SELL_DATA_CLICKED
+            )
         }
 
         val isContainerVisible = binding.tvPrivacyPolicy.isVisible()
